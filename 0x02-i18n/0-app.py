@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
-"""A simple flask app
 """
+A Basic flask application
+"""
+from flask import Flask
+from flask import render_template
 
-
-from flask import Flask, render_template
 
 app = Flask(__name__)
 
 
-@app.route('/')
-def hello_world():
-    """_summary_
+@app.route('/', strict_slashes=False)
+def index() -> str:
+    """
+    Renders a basic html template
     """
     return render_template('0-index.html')
 
 
 if __name__ == '__main__':
-    app.run(port="5000", host="0.0.0.0", debug=True)
+    app.run()
